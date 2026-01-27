@@ -12,17 +12,11 @@ interface ProductCardProps {
 }
 export function ProductCard({ product }: ProductCardProps) {
   const addToCart = useShopStore((s) => s.addToCart);
-  const setQuickViewProduct = useShopStore((s) => s.setQuickViewProduct);
-  const handleAdd = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleAdd = () => {
     addToCart(product.id);
     toast.success(`${product.name} added to loadout`, {
       description: "Item processed successfully.",
     });
-  };
-  const handleQuickView = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setQuickViewProduct(product.id);
   };
   return (
     <motion.div
@@ -45,20 +39,14 @@ export function ProductCard({ product }: ProductCardProps) {
             </Badge>
           )}
           <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-            <Button 
-              onClick={handleQuickView}
-              size="icon" 
-              variant="secondary" 
-              className="h-8 w-8 rounded-none border border-slate-900 shadow-md"
-              aria-label="View Technical Specs"
-            >
+            <Button size="icon" variant="secondary" className="h-8 w-8 rounded-none">
               <Ruler className="h-4 w-4" />
             </Button>
           </div>
         </div>
         <CardContent className="p-4 flex-grow">
           <div className="flex items-center gap-1 text-[10px] font-mono uppercase text-muted-foreground mb-1">
-            <Star className="h-3 w-3 fill-amber-500 text-amber-500" />
+            <Star className="h-3 w-3 fill-amber-500 text-amber-500" /> 
             Certified {product.category}
           </div>
           <h3 className="font-black text-lg uppercase tracking-tight leading-tight mb-2 truncate">
@@ -69,7 +57,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </p>
           <div className="grid grid-cols-2 gap-2 mt-auto">
             {product.specs.map((spec) => (
-              <div key={spec.label} className="bg-secondary p-2 rounded-none border-l-2 border-slate-300">
+              <div key={spec.label} className="bg-secondary p-2 rounded-none">
                 <span className="block text-[8px] font-mono uppercase text-muted-foreground">{spec.label}</span>
                 <span className="block text-xs font-bold">{spec.value}</span>
               </div>
@@ -81,7 +69,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <span className="text-2xs font-mono uppercase text-muted-foreground">Unit Price</span>
             <span className="text-xl font-black text-primary">€{product.price.toFixed(2)}</span>
           </div>
-          <Button onClick={handleAdd} size="sm" className="bg-primary hover:bg-amber-500 text-primary-foreground hover:text-slate-900 rounded-none h-10 flex-1 font-bold uppercase transition-colors border-2 border-primary">
+          <Button onClick={handleAdd} size="sm" className="bg-primary hover:bg-amber-500 text-primary-foreground hover:text-slate-900 rounded-none h-10 flex-1 font-bold uppercase transition-colors">
             <Plus className="h-4 w-4 mr-1" /> Add
           </Button>
         </CardFooter>
