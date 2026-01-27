@@ -1,6 +1,6 @@
 # Cloudflare Workers Full-Stack Chat Demo
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/rosscf/kraft-krust-premium-german-provisions)
 
 ## Overview
 
@@ -118,7 +118,7 @@ const chat = await api<Chat>('/api/chats', {
    - Custom domain: Edit `wrangler.toml`
 
 3. **One-Click Deploy**
-   [cloudflarebutton]
+   [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/rosscf/kraft-krust-premium-german-provisions)
 
 **Production URLs**:
 - API: `https://<worker>.<subdomain>.workers.dev/api/*`
