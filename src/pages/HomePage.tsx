@@ -14,11 +14,11 @@ export function HomePage() {
   const isFilterOpen = useShopStore((s) => s.isFilterOpen);
   const setIsFilterOpen = useShopStore((s) => s.setIsFilterOpen);
   return (
-    <div className="min-h-screen flex flex-col bg-background font-sans selection:bg-amber-500 selection:text-slate-900">
+    <div className="min-h-screen flex flex-col bg-background font-sans selection:bg-amber-500 selection:text-slate-900 scroll-smooth">
       <SiteHeader />
       <main className="flex-grow">
         <HeroSection />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="inventory" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-12 md:py-16">
             <div className="flex flex-col md:flex-row gap-12">
               {/* Desktop Sidebar */}
@@ -63,9 +63,11 @@ export function HomePage() {
       <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
         <SheetContent side="left" className="w-[300px] sm:w-[400px]">
           <SheetHeader className="mb-6">
-            <SheetTitle className="text-2xl font-black uppercase tracking-tighter">Filter Protocols</SheetTitle>
+            <SheetTitle className="text-2xl font-black uppercase tracking-tighter text-left">Filter Protocols</SheetTitle>
           </SheetHeader>
-          <FilterSidebar />
+          <div className="px-1">
+            <FilterSidebar />
+          </div>
         </SheetContent>
       </Sheet>
       <SiteFooter />

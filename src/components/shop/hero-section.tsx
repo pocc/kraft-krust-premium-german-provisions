@@ -2,7 +2,25 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Hammer, Settings2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useShopStore } from '@/store/shop-store';
 export function HeroSection() {
+  const setQuickViewProduct = useShopStore((s) => s.setQuickViewProduct);
+  const scrollToInventory = () => {
+    const element = document.getElementById("inventory");
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+  const handleShowFeaturedSpecs = () => {
+    // Show technical specs for the lead product: Edel-Pilsner Precision (p1)
+    setQuickViewProduct('p1');
+  };
   return (
     <section className="relative overflow-hidden bg-slate-900 text-white py-20 lg:py-32">
       <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -45,12 +63,17 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-wrap gap-4"
           >
-            <Button size="lg" className="bg-amber-500 text-slate-900 hover:bg-amber-400 font-bold uppercase rounded-none h-14 px-8">
-              Explore Inventory
-            </Button>
             <Button 
               size="lg" 
-              variant="outline" 
+              onClick={scrollToInventory}
+              className="bg-amber-500 text-slate-900 hover:bg-amber-400 font-bold uppercase rounded-none h-14 px-8"
+            >
+              Explore Inventory
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={handleShowFeaturedSpecs}
               className="border-slate-500 bg-slate-800/50 text-slate-100 hover:bg-slate-100 hover:text-slate-900 font-bold uppercase tracking-wider rounded-none h-14 px-8 transition-all duration-200 border-2"
             >
               <Hammer className="mr-2 h-5 w-5" /> Technical specs
