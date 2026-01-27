@@ -4,6 +4,7 @@ import { SiteFooter } from '@/components/layout/site-footer';
 import { HeroSection } from '@/components/shop/hero-section';
 import { FilterSidebar } from '@/components/shop/filter-sidebar';
 import { ProductGrid } from '@/components/shop/product-grid';
+import { ProductQuickView } from '@/components/shop/product-quick-view';
 import { useShopStore } from '@/store/shop-store';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Toaster } from '@/components/ui/sonner';
@@ -57,7 +58,8 @@ export function HomePage() {
           </div>
         </div>
       </main>
-      {/* Mobile Filter Sheet */}
+      {/* Modals & Overlays */}
+      <ProductQuickView />
       <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
         <SheetContent side="left" className="w-[300px] sm:w-[400px]">
           <SheetHeader className="mb-6">

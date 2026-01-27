@@ -48,7 +48,11 @@ export function HeroSection() {
             <Button size="lg" className="bg-amber-500 text-slate-900 hover:bg-amber-400 font-bold uppercase rounded-none h-14 px-8">
               Explore Inventory
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-bold uppercase rounded-none h-14 px-8">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-slate-500 bg-slate-800/50 text-slate-100 hover:bg-slate-100 hover:text-slate-900 font-bold uppercase tracking-wider rounded-none h-14 px-8 transition-all duration-200 border-2"
+            >
               <Hammer className="mr-2 h-5 w-5" /> Technical specs
             </Button>
           </motion.div>

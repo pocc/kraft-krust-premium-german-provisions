@@ -6,12 +6,14 @@ interface ShopState {
   priceRange: [number, number];
   cartItems: { productId: string; quantity: number }[];
   isFilterOpen: boolean;
+  quickViewProductId: string | null;
   setSearchQuery: (query: string) => void;
   toggleCategory: (category: ProductCategory) => void;
   setPriceRange: (range: [number, number]) => void;
   addToCart: (productId: string) => void;
   removeFromCart: (productId: string) => void;
   setIsFilterOpen: (isOpen: boolean) => void;
+  setQuickViewProduct: (productId: string | null) => void;
   clearFilters: () => void;
 }
 export const useShopStore = create<ShopState>((set) => ({
@@ -20,6 +22,7 @@ export const useShopStore = create<ShopState>((set) => ({
   priceRange: [0, 50],
   cartItems: [],
   isFilterOpen: false,
+  quickViewProductId: null,
   setSearchQuery: (query) => set({ searchQuery: query }),
   toggleCategory: (category) => set((state) => ({
     selectedCategories: state.selectedCategories.includes(category)
@@ -42,6 +45,7 @@ export const useShopStore = create<ShopState>((set) => ({
     cartItems: state.cartItems.filter((item) => item.productId !== productId)
   })),
   setIsFilterOpen: (isOpen) => set({ isFilterOpen: isOpen }),
+  setQuickViewProduct: (productId) => set({ quickViewProductId: productId }),
   clearFilters: () => set({ selectedCategories: [], searchQuery: '', priceRange: [0, 50] }),
 }));
 export const getFilteredProducts = (state: ShopState): Product[] => {
