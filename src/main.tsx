@@ -15,13 +15,19 @@ import { HomePage } from '@/pages/HomePage'
 
 const queryClient = new QueryClient();
 
+// Detect base path from URL (e.g., /fr, /de, /ch)
+const getBasename = () => {
+  const match = window.location.pathname.match(/^\/(fr|de|ch)/);
+  return match ? `/${match[1]}` : '';
+};
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
     errorElement: <RouteErrorBoundary />,
   },
-]);
+], { basename: getBasename() });
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
