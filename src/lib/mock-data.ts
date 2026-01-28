@@ -47,7 +47,7 @@ export const PRODUCTS: Product[] = [
     category: 'Twisted Dough',
     description: 'Oversized dough engineering. Recommended for group deployments or extreme hunger levels.',
     price: 8.50,
-    image: 'https://images.unsplash.com/photo-1573549245842-45a86d9a9b1c?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=800',
     specs: [{ label: 'Radius', value: '15cm' }, { label: 'Durability', value: '48h' }],
     isNew: true
   },
