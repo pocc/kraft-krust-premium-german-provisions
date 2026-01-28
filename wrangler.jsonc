@@ -4,7 +4,7 @@
  */
  {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "kraft-and-krust-wu5r-2x1rmm9ebihxh9w7",
+	"name": "kraft-krust-premium-german-provisions",
 	"main": "worker/index.ts",
 	"compatibility_date": "2025-04-24",
 	"assets": {
